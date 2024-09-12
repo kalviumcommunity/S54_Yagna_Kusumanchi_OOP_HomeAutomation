@@ -43,7 +43,7 @@ To run the Home Automation System Simulation, ensure you have the following inst
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/home-automation-system-simulation.git
+    git clone https://github.com/kalviumcommunity/S54_Yagna_Kusumanchi_OOP_HomeAutomation.git
     ```
    
 2. **Open the Project in Your IDE**:
