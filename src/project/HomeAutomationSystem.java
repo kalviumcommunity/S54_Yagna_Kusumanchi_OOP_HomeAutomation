@@ -2,17 +2,18 @@ package project;
 
 import project.devices.Device;
 import project.devices.Fan;
+import project.devices.Light;
 
 public class HomeAutomationSystem {
     public static void main(String[] args) {
-        Device fan = new Fan("Bedroom Fan", 3);
+        Device light = new Light("Bedroom Light", 80);
 
-        fan.displayStatus();
+        light.displayStatus();
 
-        fan.turnOn();
+        light.turnOn();
 
-        ((Fan) fan).adjustSpeed(4);
+        ((Light) light).adjustBrightness(100);
 
-        fan.displayStatus();
+        light.displayStatus();
     }
 }
