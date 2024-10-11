@@ -6,35 +6,27 @@ import project.devices.Light;
 
 public class HomeAutomationSystem {
     public static void main(String[] args) {
-        Device[] devices = new Device[4];
-        
-        devices[0] = new Light("Living Room Light", 70);
-        devices[1] = new Fan("Bedroom Fan", 3);
-        devices[2] = new Light("Kitchen Light", 50);
-        devices[3] = new Fan("Office Fan", 2);
+        Device livingRoomLight = new Light("Living Room Light", 70);
+        Device bedroomFan = new Fan("Bedroom Fan", 3);
 
-        System.out.println("Initial Status of Devices:");
-        for (Device device : devices) {
-            device.displayStatus();
-        }
+        livingRoomLight.displayStatus(); 
+        livingRoomLight.turnOn();         
+        ((Light)livingRoomLight).adjustBrightness(90);  
+        livingRoomLight.displayStatus();  
 
-        System.out.println("\nTurning on all devices:");
-        for (Device device : devices) {
-            device.turnOn();
-        }
+        System.out.println();
 
-        System.out.println("\nAdjusting the settings for Lights and Fans:");
-        for (Device device : devices) {
-            if (device instanceof Light) {
-                ((Light) device).adjustBrightness(80);  
-            } else if (device instanceof Fan) {
-                ((Fan) device).adjustSpeed(5);  
-            }
-        }
+        bedroomFan.displayStatus(); 
+        bedroomFan.turnOn();
+        ((Fan)bedroomFan).adjustSpeed(5);
+        bedroomFan.displayStatus();
 
-        System.out.println("\nFinal Status of Devices:");
-        for (Device device : devices) {
-            device.displayStatus();
-        }
+        System.out.println();
+
+        livingRoomLight.turnOff();
+        bedroomFan.turnOff();
+
+        System.out.println("Total devices created: " + Device.getTotalDevices());
+        System.out.println("Total power usage: " + Device.getTotalPowerUsage() + " units");
     }
 }
