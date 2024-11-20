@@ -9,6 +9,7 @@ public class HomeAutomationSystem {
         Device livingRoomLight = new Light("Living Room Light", 70);
         Device bedroomFan = new Fan("Bedroom Fan", 3);
 
+        // Display the initial status of the devices
         livingRoomLight.displayStatus(); 
         livingRoomLight.turnOn();         
         ((Light)livingRoomLight).adjustBrightness(90);  
