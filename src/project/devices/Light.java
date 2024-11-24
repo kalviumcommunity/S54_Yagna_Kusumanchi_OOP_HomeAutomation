@@ -3,13 +3,11 @@ package project.devices;
 public class Light extends Device {
     private int brightness;
 
-    // Parameterized constructor
     public Light(String name, int brightness) {
-        super(name);  // Call to the parent class constructor
+        super(name); // Calling the constructor of the parent class
         this.brightness = brightness;
     }
 
-    // Adjust brightness
     public void adjustBrightness(int newBrightness) {
         if (isOn) {
             brightness = newBrightness;
@@ -21,7 +19,7 @@ public class Light extends Device {
 
     @Override
     public void displayStatus() {
-        super.displayStatus();
+        super.displayStatus(); // Calling the parent class method
         if (isOn) {
             System.out.println("Brightness: " + brightness + "%");
         }

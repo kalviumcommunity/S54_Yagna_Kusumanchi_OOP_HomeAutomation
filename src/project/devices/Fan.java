@@ -3,13 +3,11 @@ package project.devices;
 public class Fan extends Device {
     private int speed;
 
-    // Parameterized constructor
     public Fan(String name, int speed) {
-        super(name);  // Call to the parent class constructor
+        super(name); // Calling the constructor of the parent class
         this.speed = speed;
     }
 
-    // Adjust speed
     public void adjustSpeed(int newSpeed) {
         if (isOn) {
             speed = newSpeed;
@@ -21,7 +19,7 @@ public class Fan extends Device {
 
     @Override
     public void displayStatus() {
-        super.displayStatus();
+        super.displayStatus(); // Calling the parent class method
         if (isOn) {
             System.out.println("Speed: " + speed);
         }
