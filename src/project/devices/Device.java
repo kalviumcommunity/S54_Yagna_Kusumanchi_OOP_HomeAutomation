@@ -1,56 +1,42 @@
 package project.devices;
 
-public class Device {
-    private String name; // Encapsulation
-    private boolean isOn;
+public class Device extends AbstractDevice {
+    private static int totalDevices = 0; // Static variable for tracking device count
 
-    private static int totalDevices = 0;
-    private static int totalPowerUsage = 0;
-
+    // Constructor
     public Device(String name) {
-        this.name = name;
-        this.isOn = false;
-        totalDevices++;
+        super(name);
+        totalDevices++; // Increment total devices when a new device is created
     }
 
-    // Public getters and setters for encapsulated fields
-    public String getName() {
-        return name;
-    }
-
-    public boolean isOn() {
-        return isOn;
-    }
-
-    public static int getTotalDevices() {
-        return totalDevices;
-    }
-
-    public static int getTotalPowerUsage() {
-        return totalPowerUsage;
-    }
-
+    // Implementing abstract methods
+    @Override
     public void turnOn() {
         if (!isOn) {
             isOn = true;
-            totalPowerUsage += 10;
             System.out.println(name + " is now ON.");
         } else {
             System.out.println(name + " is already ON.");
         }
     }
 
+    @Override
     public void turnOff() {
         if (isOn) {
             isOn = false;
-            totalPowerUsage -= 10;
             System.out.println(name + " is now OFF.");
         } else {
             System.out.println(name + " is already OFF.");
         }
     }
 
+    @Override
     public void displayStatus() {
         System.out.println(name + " is " + (isOn ? "ON" : "OFF"));
+    }
+
+    // Static method to get total devices
+    public static int getTotalDevices() {
+        return totalDevices;
     }
 }
