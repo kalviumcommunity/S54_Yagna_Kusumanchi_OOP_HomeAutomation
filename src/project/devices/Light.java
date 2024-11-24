@@ -4,7 +4,7 @@ public class Light extends Device {
     private int brightness;
 
     public Light(String name, int brightness) {
-        super(name); // Calling the constructor of the parent class
+        super(name); // Calling the parent class constructor
         this.brightness = brightness;
     }
 
@@ -17,9 +17,10 @@ public class Light extends Device {
         }
     }
 
+    // Overriding the displayStatus method (runtime polymorphism)
     @Override
     public void displayStatus() {
-        super.displayStatus(); // Calling the parent class method
+        super.displayStatus(); // Call the parent method
         if (isOn) {
             System.out.println("Brightness: " + brightness + "%");
         }

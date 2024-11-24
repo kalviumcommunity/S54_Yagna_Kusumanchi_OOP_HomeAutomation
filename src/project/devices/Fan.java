@@ -4,7 +4,7 @@ public class Fan extends Device {
     private int speed;
 
     public Fan(String name, int speed) {
-        super(name); // Calling the constructor of the parent class
+        super(name); // Calling the parent class constructor
         this.speed = speed;
     }
 
@@ -17,9 +17,10 @@ public class Fan extends Device {
         }
     }
 
+    // Overriding the displayStatus method (runtime polymorphism)
     @Override
     public void displayStatus() {
-        super.displayStatus(); // Calling the parent class method
+        super.displayStatus(); // Call the parent method
         if (isOn) {
             System.out.println("Speed: " + speed);
         }

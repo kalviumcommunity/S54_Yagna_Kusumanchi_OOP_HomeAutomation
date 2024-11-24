@@ -9,6 +9,7 @@ public class Device {
         this.isOn = false;
     }
 
+    // Method to demonstrate compile-time polymorphism (method overloading)
     public void turnOn() {
         if (!isOn) {
             isOn = true;
@@ -16,6 +17,12 @@ public class Device {
         } else {
             System.out.println(name + " is already ON.");
         }
+    }
+
+    public void turnOn(int delayInSeconds) {
+        System.out.println("Turning on " + name + " after a delay of " + delayInSeconds + " seconds...");
+        isOn = true;
+        System.out.println(name + " is now ON.");
     }
 
     public void turnOff() {
