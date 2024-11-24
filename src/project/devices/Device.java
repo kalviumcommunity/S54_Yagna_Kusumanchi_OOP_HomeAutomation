@@ -1,6 +1,7 @@
 package project.devices;
 
-public class Device {
+// Abstract class to represent a generic device
+public abstract class Device {
     protected String name;
     protected boolean isOn;
 
@@ -9,7 +10,7 @@ public class Device {
         this.isOn = false;
     }
 
-    // Method to demonstrate compile-time polymorphism (method overloading)
+    // Concrete method (common functionality for all devices)
     public void turnOn() {
         if (!isOn) {
             isOn = true;
@@ -17,12 +18,6 @@ public class Device {
         } else {
             System.out.println(name + " is already ON.");
         }
-    }
-
-    public void turnOn(int delayInSeconds) {
-        System.out.println("Turning on " + name + " after a delay of " + delayInSeconds + " seconds...");
-        isOn = true;
-        System.out.println(name + " is now ON.");
     }
 
     public void turnOff() {
@@ -34,7 +29,6 @@ public class Device {
         }
     }
 
-    public void displayStatus() {
-        System.out.println(name + " is " + (isOn ? "ON" : "OFF"));
-    }
+    // Abstract method (virtual function) to be implemented by subclasses
+    public abstract void displayStatus();
 }

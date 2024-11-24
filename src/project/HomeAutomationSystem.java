@@ -6,30 +6,32 @@ import project.devices.Light;
 
 public class HomeAutomationSystem {
     public static void main(String[] args) {
-        System.out.println("---- Demonstrating Polymorphism ----");
+        System.out.println("---- Demonstrating Abstract Class and Virtual Function ----");
 
-        // Runtime polymorphism with method overriding
+        // Creating objects using the abstract class reference
         Device livingRoomLight = new Light("Living Room Light", 70);
         Device bedroomFan = new Fan("Bedroom Fan", 3);
 
+        // Demonstrating polymorphic behavior
         livingRoomLight.turnOn();
         bedroomFan.turnOn();
 
-        livingRoomLight.displayStatus(); // Calls overridden method in Light
-        bedroomFan.displayStatus();     // Calls overridden method in Fan
+        livingRoomLight.displayStatus(); // Calls Light's implementation of displayStatus
+        bedroomFan.displayStatus();     // Calls Fan's implementation of displayStatus
 
         System.out.println();
 
-        // Compile-time polymorphism with method overloading
+        // Adjust properties
+        ((Light) livingRoomLight).adjustBrightness(90);
+        ((Fan) bedroomFan).adjustSpeed(5);
+
+        livingRoomLight.displayStatus();
+        bedroomFan.displayStatus();
+
+        System.out.println();
+
+        // Turning devices off
         livingRoomLight.turnOff();
-        livingRoomLight.turnOn(5); // Calls overloaded method with delay
-
-        System.out.println();
-
-        // Using polymorphic behavior in arrays
-        Device[] devices = {livingRoomLight, bedroomFan};
-        for (Device device : devices) {
-            device.displayStatus(); // Calls the overridden method based on the object type
-        }
+        bedroomFan.turnOff();
     }
 }
