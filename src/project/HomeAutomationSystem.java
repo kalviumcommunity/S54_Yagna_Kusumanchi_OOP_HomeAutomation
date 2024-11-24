@@ -6,20 +6,23 @@ import project.devices.Light;
 
 public class HomeAutomationSystem {
     public static void main(String[] args) {
+        User admin = new User("Alice", "Admin");
+        admin.displayUserInfo();
+        System.out.println();
+
         Device livingRoomLight = new Light("Living Room Light", 70);
         Device bedroomFan = new Fan("Bedroom Fan", 3);
 
-        // Display the initial status of the devices
-        livingRoomLight.displayStatus(); 
-        livingRoomLight.turnOn();         
-        ((Light)livingRoomLight).adjustBrightness(90);  
-        livingRoomLight.displayStatus();  
+        livingRoomLight.displayStatus();
+        livingRoomLight.turnOn();
+        ((Light) livingRoomLight).setBrightness(90);
+        livingRoomLight.displayStatus();
 
         System.out.println();
 
-        bedroomFan.displayStatus(); 
+        bedroomFan.displayStatus();
         bedroomFan.turnOn();
-        ((Fan)bedroomFan).adjustSpeed(5);
+        ((Fan) bedroomFan).setSpeed(5);
         bedroomFan.displayStatus();
 
         System.out.println();
