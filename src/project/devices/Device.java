@@ -1,16 +1,25 @@
 package project.devices;
 
 public class Device {
-    protected String name;
-    protected boolean isOn;
+    private String name; // Encapsulation
+    private boolean isOn;
 
-    private static int totalDevices = 0; 
-    private static int totalPowerUsage = 0; 
+    private static int totalDevices = 0;
+    private static int totalPowerUsage = 0;
 
     public Device(String name) {
         this.name = name;
-        this.isOn = false;  
-        totalDevices++; 
+        this.isOn = false;
+        totalDevices++;
+    }
+
+    // Public getters and setters for encapsulated fields
+    public String getName() {
+        return name;
+    }
+
+    public boolean isOn() {
+        return isOn;
     }
 
     public static int getTotalDevices() {

@@ -4,23 +4,27 @@ public class Light extends Device {
     private int brightness;
 
     public Light(String name, int brightness) {
-        super(name);  
+        super(name);
         this.brightness = brightness;
     }
 
-    public void adjustBrightness(int newBrightness) {
-        if (isOn) {
-            brightness = newBrightness;
-            System.out.println(name + " brightness adjusted to " + brightness + "%.");
+    public int getBrightness() {
+        return brightness;
+    }
+
+    public void setBrightness(int brightness) {
+        if (isOn()) {
+            this.brightness = brightness;
+            System.out.println(getName() + " brightness adjusted to " + brightness + "%.");
         } else {
-            System.out.println(name + " is OFF. Cannot adjust brightness.");
+            System.out.println(getName() + " is OFF. Cannot adjust brightness.");
         }
     }
 
     @Override
     public void displayStatus() {
-        super.displayStatus();  
-        if (isOn) {
+        super.displayStatus();
+        if (isOn()) {
             System.out.println("Brightness: " + brightness + "%");
         }
     }
