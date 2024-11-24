@@ -3,11 +3,13 @@ package project.devices;
 public class Fan extends Device {
     private int speed;
 
+    // Parameterized constructor
     public Fan(String name, int speed) {
-        super(name);
+        super(name);  // Call to the parent class constructor
         this.speed = speed;
     }
 
+    // Adjust speed
     public void adjustSpeed(int newSpeed) {
         if (isOn) {
             speed = newSpeed;
