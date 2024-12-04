@@ -30,6 +30,6 @@ public abstract class Device {
         return name;
     }
 
-    // Abstract method to be implemented by subclasses
+    // Abstract method to get details about the device
     public abstract String getDeviceDetails();
 }
