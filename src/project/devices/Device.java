@@ -11,15 +11,11 @@ public abstract class Device {
     }
 
     public void turnOn() {
-        if (!isOn) {
-            isOn = true;
-        }
+        isOn = true;
     }
 
     public void turnOff() {
-        if (isOn) {
-            isOn = false;
-        }
+        isOn = false;
     }
 
     public boolean isOn() {
