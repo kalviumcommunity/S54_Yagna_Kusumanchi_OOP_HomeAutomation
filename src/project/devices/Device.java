@@ -10,25 +10,26 @@ public abstract class Device {
         this.isOn = false;
     }
 
-    // Concrete method (common functionality for all devices)
     public void turnOn() {
         if (!isOn) {
             isOn = true;
-            System.out.println(name + " is now ON.");
-        } else {
-            System.out.println(name + " is already ON.");
         }
     }
 
     public void turnOff() {
         if (isOn) {
             isOn = false;
-            System.out.println(name + " is now OFF.");
-        } else {
-            System.out.println(name + " is already OFF.");
         }
     }
 
-    // Abstract method (virtual function) to be implemented by subclasses
-    public abstract void displayStatus();
+    public boolean isOn() {
+        return isOn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // Abstract method to get details about the device
+    public abstract String getDeviceDetails();
 }

@@ -1,37 +1,51 @@
 package project;
 
-import project.devices.Device;
-import project.devices.Fan;
-import project.devices.Light;
+import project.devices.*;
 
 public class HomeAutomationSystem {
     public static void main(String[] args) {
-        System.out.println("---- Demonstrating Abstract Class and Virtual Function ----");
+        System.out.println("---- Demonstrating Open/Closed Principle ----");
 
-        // Creating objects using the abstract class reference
         Device livingRoomLight = new Light("Living Room Light", 70);
         Device bedroomFan = new Fan("Bedroom Fan", 3);
+        Device thermostat = new SmartThermostat("Living Room Thermostat", 22);
+        Device securityCamera = new SecurityCamera("Front Door Camera");
 
-        // Demonstrating polymorphic behavior
+        // Turning devices on
         livingRoomLight.turnOn();
         bedroomFan.turnOn();
+        thermostat.turnOn();
+        securityCamera.turnOn();
 
-        livingRoomLight.displayStatus(); // Calls Light's implementation of displayStatus
-        bedroomFan.displayStatus();     // Calls Fan's implementation of displayStatus
-
-        System.out.println();
-
-        // Adjust properties
+        // Adjusting properties
         ((Light) livingRoomLight).adjustBrightness(90);
         ((Fan) bedroomFan).adjustSpeed(5);
+        ((SmartThermostat) thermostat).setTemperature(25);
+        ((SecurityCamera) securityCamera).startRecording();
 
-        livingRoomLight.displayStatus();
-        bedroomFan.displayStatus();
+        // Displaying statuses
+        displayDeviceStatus(livingRoomLight);
+        displayDeviceStatus(bedroomFan);
+        displayDeviceStatus(thermostat);
+        displayDeviceStatus(securityCamera);
 
-        System.out.println();
+        System.out.println("\nTurning off all devices...\n");
 
-        // Turning devices off
+        // Turning off devices
         livingRoomLight.turnOff();
         bedroomFan.turnOff();
+        thermostat.turnOff();
+        securityCamera.turnOff();
+
+        // Displaying statuses again
+        displayDeviceStatus(livingRoomLight);
+        displayDeviceStatus(bedroomFan);
+        displayDeviceStatus(thermostat);
+        displayDeviceStatus(securityCamera);
+    }
+
+    // Method to display device status
+    public static void displayDeviceStatus(Device device) {
+        System.out.println(device.getName() + " is " + (device.isOn() ? "ON" : "OFF") + ". " + device.getDeviceDetails());
     }
 }
